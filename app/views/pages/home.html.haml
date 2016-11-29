@@ -15,6 +15,18 @@
     %a#btn-buy.btn.btn-success.btn-lg.btn-block{:href => "receipt.html"}
       %span.glyphicon.glyphicon-ok>
       Get it!
+    = form_tag charges_path do
+      %article
+        - if flash[:error].present?
+          #error_explanation
+            %p= flash[:error]
+        %label.amount
+          %span Amount: $5.00
+      %script.stripe-button{"data-amount" => "500",
+      "data-description" => "A month's subscription",
+       "data-key" => "#{Rails.configuration.stripe[:publishable_key]}",
+       "data-locale" => "auto", :src => "https://checkout.stripe.com/checkout.js"}
+
     %ul#details-infobox.list-group
       %li.list-group-item.active.clearfix Info
       %li.list-group-item What You Get
