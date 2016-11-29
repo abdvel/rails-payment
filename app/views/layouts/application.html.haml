@@ -11,4 +11,14 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
+  #content.container
+    %header#content-header
+      #price-container
+        %span.glyphicon.glyphicon-tag
+        %span.price $9.99
+      = image_tag('header-image.jpg', id:"content-head-img", alt: "Rails Payment!")
     = yield
+  %footer#site-footer
+    Made by
+    %a{:href => "#", :target => "_blank"}
+      %p Learn Rails
