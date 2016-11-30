@@ -1,2 +1,21 @@
-%p This is your purchase
-%p Your purchase is #{@purchase.inspect}
+%section#content-receipt.clearfix
+  #receipt-container
+    .dotmatrix.left
+    #receipt-content
+      %h4#receipt-title Thank You!
+      %p
+        %strong RECEIPT
+      #receipt-details.row.clearfix
+        .col-sm-8.receipt-left
+          %p
+            %strong.font-weight-heavy Your Product
+            %br/
+            %span.font-weight-light What you sold
+        .col-sm-4
+          $4.99
+      %a{href:"https://drive.google.com/file/d/0B_IgSkXhZOoUMXhxdm15OG1OTTQ/view?usp=sharing"}
+        %button.btn.btn-success.btn-xs{:type => "button"} DOWNLOAD
+      %footer#receipt-footer
+        %small Your purchase is complete. We hope you enjoy it!
+    .dotmatrix.right
+  #receipt-shadow
