@@ -1,0 +1,16 @@
+var handler = StripeCheckout.configure({
+  key: '<%= Rails.configuration.stripe[:publishable_key]%>',
+  token: function (token,arg) {
+    document.getElementById("stripeToken").value = token.id;
+    document.getElementById("stripeEmail").value = token.id;
+    document.getElementById("changeForm").submit();
+  }
+});
+document.getElementById('btn-buy').addEventListener('click',function (e) {
+    handler.open({
+      name: 'Rails Payment'
+      description: 'Buy this istem for ($4.99)',
+      amount: 499
+    });
+    e.preventDefault();
+})

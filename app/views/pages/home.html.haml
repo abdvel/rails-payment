@@ -12,21 +12,34 @@
       %li Lorem ipsum dolor sit amet, cum.
       %li Lorem ipsum dolor sit amet, quo ne etiam.
   %aside#details-aside.col-sm-4
-    %a#btn-buy.btn.btn-success.btn-lg.btn-block{:href => "receipt.html"}
-      %span.glyphicon.glyphicon-ok>
-      Get it!
-    = form_tag charges_path do
-      %article
-        - if flash[:error].present?
-          #error_explanation
-            %p= flash[:error]
-        %label.amount
-          %span Amount: $5.00
-      %script.stripe-button{"data-amount" => "500",
-      "data-description" => "A month's subscription",
-       "data-key" => "#{Rails.configuration.stripe[:publishable_key]}",
-       "data-locale" => "auto", :src => "https://checkout.stripe.com/checkout.js"}
-
+    = form_tag charges_path, id:'chargeForm' do
+      - if flash[:error].present?
+        #error_explanation
+          %p= flash[:error]
+      %script{:src => "https://checkout.stripe.com/checkout.js"}
+      = hidden_field_tag 'stripeToken'
+      = hidden_field_tag 'amount', 499
+      = hidden_field_tag 'stripeEmail'
+      %button#btn-buy.btn.btn-success.btn-lg.btn-block{:type => "button"}
+        %span.glyphicon.glyphicon-ok>
+        Buy this!
+      :javascript
+        var handler = StripeCheckout.configure({
+              key: '#{Rails.configuration.stripe[:publishable_key]}',
+              token: function(token, arg) {
+                document.getElementById("stripeToken").value = token.id;
+                document.getElementById("stripeEmail").value = token.email;
+                document.getElementById("chargeForm").submit();
+              }
+        });
+        document.getElementById('btn-buy').addEventListener('click', function(e) {
+              handler.open({
+                name: 'Rails Payment',
+                description: 'Buy this item for ($4.99)',
+                amount: document.getElementById("amount").value
+            });
+            e.preventDefault();
+           })
     %ul#details-infobox.list-group
       %li.list-group-item.active.clearfix Info
       %li.list-group-item What You Get
