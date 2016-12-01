@@ -6,9 +6,10 @@
 
 %section#products
   - @products.each do |product|
-    .product.clearfix
-      %a{href:"#{product_path(product)}"}
-        .product-image-container
-          %img{src:"#{asset_path product.image_name}",alt:"#{product.title}"}
-          %span.product-price= product.price
-        %p.product-title= product.title
+    .productbox
+      %img.img-responsive.img-circle{:src => "#{asset_path product.image_name}", alt:"#{product.title}"}
+      .producttitle= product.title
+      .productprice
+        .pull-right
+          %a.btn.btn-danger.btn-sm{:href => "#{product_path(product)}", :role => "button"} BUY
+        .pricetext= product.price

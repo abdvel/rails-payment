@@ -4,6 +4,7 @@
       = @product.title
       %span.font-weight-light= @product.subtitle
     = raw @product.description
+    %img.img-responsive{:src => "#{asset_path @product.image_name}", alt:"#{@product.title}"}
   %aside#details-aside.col-sm-4
     = form_tag charges_path, id:'chargeForm' do
       - if flash[:error].present?
