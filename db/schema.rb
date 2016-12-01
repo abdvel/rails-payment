@@ -47,7 +47,7 @@ ActiveRecord::Schema.define(version: 20161201000306) do
     t.string   "title"
     t.string   "subtitle"
     t.string   "image_name"
-    t.string   "sku"
+    t.string   "skut"
     t.string   "download_url"
     t.string   "details"
     t.text     "description"

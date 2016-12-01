@@ -7,7 +7,7 @@
 %section#products
   - @products.each do |product|
     .product.clearfix
-      %a{href:""}
+      %a{href:"#{product_path(product)}"}
         .product-image-container
           %img{src:"#{asset_path product.image_name}",alt:"#{product.title}"}
           %span.product-price= product.price
