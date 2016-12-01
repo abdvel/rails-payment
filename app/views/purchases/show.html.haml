@@ -8,11 +8,11 @@
       #receipt-details.row.clearfix
         .col-sm-8.receipt-left
           %p
-            %strong.font-weight-heavy Your Product
-            %br/
-            %span.font-weight-light What you sold
+            %strong.font-weight-heavy= @product.title
+            %br
+            %span.font-weight-light= @product.subtitle
         .col-sm-4
-          $4.99
+          = @product.price
       %a{href:"https://drive.google.com/file/d/0B_IgSkXhZOoUMXhxdm15OG1OTTQ/view?usp=sharing"}
         %button.btn.btn-success.btn-xs{:type => "button"} DOWNLOAD
       %footer#receipt-footer

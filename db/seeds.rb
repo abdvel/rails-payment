@@ -9,12 +9,12 @@ AdminUser.create!(email: 'admin@example.com', password: 'password', password_con
 
 niceCat = Product.create(title: "Quality Kitty",
   subtitle: "Rails Payment", image_name: "kitty.jpg",
-  price: "4.99", sku: "kittyone", download_url: "https://drive.google.com/file/d/0B_IgSkXhZOoUMXhxdm15OG1OTTQ/view?usp=sharing",
+  price: "4.99", sku: "kittyone",info:"cute cat", download_url: "https://drive.google.com/file/d/0B_IgSkXhZOoUMXhxdm15OG1OTTQ/view?usp=sharing",
   details: "A really nice cat", description: %{It's a cat
   })
 
 niceDog = Product.create(title: "Quality Dog",
   subtitle: "Rails Payment", image_name: "dog.jpg",
-  price: "4.99", sku: "dogone", download_url: "https://drive.google.com/file/d/0B_IgSkXhZOoUckhWaEFvUnU4T2c/view?usp=sharing",
+  price: "4.99", sku: "dogone",info:"cute pup", download_url: "https://drive.google.com/file/d/0B_IgSkXhZOoUckhWaEFvUnU4T2c/view?usp=sharing",
   details: "A really nice dog", description: %{It's a dog
   })
