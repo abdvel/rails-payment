@@ -1,24 +1,38 @@
-# README
+### Simple Store Payment System at rubyonrails.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a payment interface for Rails. This project's being use stripe payment system.
 
-Things you may want to cover:
+### Requirements
 
-* Ruby version
+ - Ruby
+ - Rails
+ - PostgreSQL
+ - Stripe (Do not forget to set a secret key )
+ - Sendgrid
 
-* System dependencies
+### Installation
 
-* Configuration
+```sh
+git clone https://github.com/abdullahvelioglu/rails-payment.git
+bundle install
+rake db:migrate
+rake db:seed
+```
 
-* Database creation
+### Usage
 
-* Database initialization
+```sh
+rails s
+```
 
-* How to run the test suite
+That's all.
 
-* Services (job queues, cache servers, search engines, etc.)
+### Test Payment
 
-* Deployment instructions
-
-* ...
+  - Go to [a link](https://rails-payment-system.herokuapp.com)
+  - Buy any product
+  - Enter real email (Because send email your product {I dont want to be wrong})
+  - Enter credit card number - 4242-4242-4242-4242
+  - Fill other places randomly.
+  - Send
+  - You can download the product you purchased directly or mail comes in a few minutes.
