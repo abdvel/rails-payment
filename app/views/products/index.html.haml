@@ -1,0 +1,14 @@
+%section#content-details.row.clearfix
+  %article#detail-article.col-sm-8
+    %h1#article-title Look at your animals!
+
+
+
+%section#products
+  - @products.each do |product|
+    .product.clearfix
+      %a{href:""}
+        .product-image-container
+          %img{src:"#{asset_path product.image_name}",alt:"#{product.title}"}
+          %span.product-price= product.price
+        %p.product-title= product.title

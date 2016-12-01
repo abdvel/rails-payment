@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   root 'pages#home' #pages controller #home methods
   resources :charges
   resources :purchases , only: [:show]
+  resources :products , only: [:index]
 end
